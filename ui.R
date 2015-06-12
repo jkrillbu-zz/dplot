@@ -1,11 +1,14 @@
-.libPaths("/local/R/library")
+
+source("global.R")
+if (local){
+  hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
+} else {
+  .libPaths("/local/R/library")
+  hdf5_dir <- "/local/data/hdf5/"
+}
+
 library(ggvis)
 source("hdf5_utils.R")
-
-#local
-#hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
-#dmz-datasci-srv
-hdf5_dir <- "/local/data/hdf5/"
 
 axis_vars <- c(
   "Achilles RNAi v2.20 score" = "demeter",
@@ -83,7 +86,7 @@ shinyUI(fluidPage(
     ),
     mainPanel(
            ggvisOutput("plot1")
-           #,htmlOutput("n_df")
+           ,htmlOutput("n_df")
            
            
     )

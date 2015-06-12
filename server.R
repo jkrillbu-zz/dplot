@@ -1,14 +1,16 @@
-.libPaths("/local/R/library")
+
+source("global.R")
+if (local){
+  hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
+} else {
+  .libPaths("/local/R/library")
+  hdf5_dir <- "/local/data/hdf5/"
+}
 
 library(ggvis)
 library(dplyr)
 source("hdf5_utils.R")
 if (FALSE) library(RSQLite)
-
-#local
-#hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
-#dmz-datasci-srv
-hdf5_dir <- "/local/data/hdf5/"
 
 taiga_id <- list(gene.rpkm="013458ff-bb36-4fd7-ac87-dcc04b15174e",
                  demeter="cd8305ab-9ca9-4bac-8d32-d5b0fb499681",
@@ -250,19 +252,20 @@ shinyServer(function(input, output, session) {
       color_group_param <- input$m_gene
     } else {
       color_by_param <- taiga_id[["lineage.matrix"]]
-      color_group_param <- input$m_dataset
+      color_group_param <- input$lin_name
     }
     
-    #HTML(paste0('<a href="http://52.10.110.160/dplot?x_dataset=',taiga_id[[input$x_dataset]],'&',
-    #                                    'y_dataset=',taiga_id[[input$y_dataset]],'&',
-    #                                    'lineage_option=',input$filter,'&',
-    #                                    'x_gene=',input$x_gene,'&',
-    #                                    'y_gene=',input$y_gene,'&',
-    #                                    'color_by=',color_by_param,'&',
-    #                                    'color_group=',color_group_param,'&',
-    #                                    'threshold=15&',
-    #                                    'lineages=',taiga_id[["in.sets"]],'&',
-    #                                    'lineage_colors=',taiga_id[["in.sets.cols"]],'&',
-    #                                    'rule_list=blank">PDF</a>')) 
+    HTML(paste0('<a href="http://52.10.110.160/dplot?x_dataset=',taiga_id[[input$x_dataset]],'&',
+                                        'y_dataset=',taiga_id[[input$y_dataset]],'&',
+                                        'lineage_option=',ifelse(input$filter %in% c("all","solid","liquid"),input$filter,paste0(input$filter,",",taiga_id[["lineage.matrix"]])),'&',
+                                        'x_gene=',ifelse(input$x_gene == "",default_features[[input$x_dataset]],input$x_gene),'&',
+                                        'y_gene=',ifelse(input$y_gene == "",default_features[[input$y_dataset]],input$y_gene),'&',
+                                        'color_by=',ifelse(color_group_param == "","blank",color_by_param),'&',
+                                        'color_group=',ifelse(color_group_param == "","blank",color_group_param),'&',
+                                        'threshold=15&',
+                                        'lineages=',taiga_id[["in.sets"]],'&',
+                                        'lineage_colors=',taiga_id[["in.sets.cols"]],'&',
+                                        'rule_list=blank">PDF</a>')) 
 })
 })
+
