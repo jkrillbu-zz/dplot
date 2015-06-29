@@ -1,5 +1,6 @@
 
 source("global.R")
+source("common_vars.R")
 if (local){
   hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
 } else {
@@ -13,8 +14,8 @@ source("hdf5_utils.R")
 if (FALSE) library(RSQLite)
 
 taiga_id <- list(gene.rpkm="013458ff-bb36-4fd7-ac87-dcc04b15174e",
-                 demeter="cd8305ab-9ca9-4bac-8d32-d5b0fb499681",
-                 demeter.ranks="8bbc1976-0b0f-4e98-a9b0-705afe461989",
+                 demeter="cee6b9f1-9957-4abd-8938-7cbac1102869",
+                 demeter.ranks="61457d9c-877a-40c8-bec8-c5fcc443695b",
                  crispr="539379dd-8588-46d6-9c4a-0bcaf467bbf2",
                  crispr.ranks="1f84eb06-e91c-44de-b05f-7974aabfdfe9",
                  CN="20f80986-b2a9-4ced-948b-3fe0bc0522d7",
@@ -35,16 +36,6 @@ mut_combo <- list(dna.mut=paste(taiga_id[["dna.missense.inframe"]],taiga_id[["dn
                    rna.mut=paste(taiga_id[["rna.missense.inframe"]],taiga_id[["rna.damage"]],taiga_id[["rna.hotspot"]],sep=","))
 
 sample_info <- data.frame(ID=get_values(taiga_id[["in.sets"]],"CCLE_ID",hdf5_dir),lineage=get_values(taiga_id[["in.sets"]],"lineage",hdf5_dir))
-
-axis_vars <- c(
-  "Achilles RNAi v2.20 score" = "demeter",
-  "Achilles RNAi v2.20 rank" = "demeter.ranks",
-  "Achilles CRISPR v3.3.1 score" = "crispr",
-  "Achilles CRISPR v3.3.1 rank" = "crispr.ranks",
-  "CCLE RNAseq expression" = "gene.rpkm",
-  "CCLE CN" = "CN",
-  "CTD2 AUC" = "CTD2"
-)
 
 default_features <- list(demeter="BRAF",demeter.ranks="BRAF",crispr="BRAF_1_001111",crispr.ranks="BRAF_1_001111",gene.rpkm="BRAF",CN="BRAF",CTD2="nutlin-3")
 

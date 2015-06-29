@@ -1,5 +1,6 @@
 
 source("global.R")
+source("common_vars.R")
 if (local){
   hdf5_dir <- "/Users/mburger/Documents/mtools/dplot/hdf5/"
 } else {
@@ -9,16 +10,6 @@ if (local){
 
 library(ggvis)
 source("hdf5_utils.R")
-
-axis_vars <- c(
-  "Achilles RNAi v2.20 score" = "demeter",
-  "Achilles RNAi v2.20 rank" = "demeter.ranks",
-  "Achilles CRISPR v3.3.1 score" = "crispr",
-  "Achilles CRISPR v3.3.1 rank" = "crispr.ranks",
-  "CCLE RNAseq expression" = "gene.rpkm",
-  "CCLE CN" = "CN",
-  "CTD2 AUC" = "CTD2"
-)
 
 lineages <- sort(get_colnames("ddbb3f5a-62cd-4d0f-ad05-27185cc18772",hdf5_dir))
 color_vars <- c("DNA mutations" = "dna.mut",
