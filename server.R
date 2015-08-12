@@ -14,10 +14,10 @@ source("hdf5_utils.R")
 if (FALSE) library(RSQLite)
 
 taiga_id <- list(gene.rpkm="013458ff-bb36-4fd7-ac87-dcc04b15174e",
-                 demeter="3f6bc24c-1679-43c5-beff-c4a084af13e3",
-                 demeter.ranks="f2144467-4c05-4fb6-939e-f860397572f1",
-                 crispr="539379dd-8588-46d6-9c4a-0bcaf467bbf2",
-                 crispr.ranks="1f84eb06-e91c-44de-b05f-7974aabfdfe9",
+                 demeter="966b70bf-c414-43ad-97ec-1a8b50f91ed6",
+                 demeter.ranks="bde3b2c9-a10a-40aa-ab9f-0907e85c20d2",
+                 crispr="886897b5-48b1-47c5-98bb-3c40e2c5cdde",
+                 crispr.ranks="10bca438-8147-4824-9dd8-f83275868fbd",
                  CN="20f80986-b2a9-4ced-948b-3fe0bc0522d7",
                  CTD2="55098e9e-7807-4df6-9c14-bbced64c06bd",
                  in.sets="2256678c-8fe0-4f59-a7d7-a2c7c716bf83",
