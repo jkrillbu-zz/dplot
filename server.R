@@ -15,9 +15,11 @@ if (FALSE) library(RSQLite)
 
 taiga_id <- list(gene.rpkm="013458ff-bb36-4fd7-ac87-dcc04b15174e",
                  demeter="966b70bf-c414-43ad-97ec-1a8b50f91ed6",
-                 demeter.ranks="bde3b2c9-a10a-40aa-ab9f-0907e85c20d2",
-                 crispr="886897b5-48b1-47c5-98bb-3c40e2c5cdde",
-                 crispr.ranks="10bca438-8147-4824-9dd8-f83275868fbd",
+                 demeter.ranks="6ce39e1f-b1e0-4085-b644-c8604f6e8fe9",
+                 gecko="886897b5-48b1-47c5-98bb-3c40e2c5cdde",
+                 gecko.ranks="e0136d0d-ad4b-40c3-ba9c-820d1a26797b",
+                 avana="fb187a9d-b37a-4c1b-8033-86229be86b48",
+                 avana.ranks="6dc81b16-2e03-444b-b69f-83fd548a2766",
                  CN="20f80986-b2a9-4ced-948b-3fe0bc0522d7",
                  CTD2="55098e9e-7807-4df6-9c14-bbced64c06bd",
                  in.sets="2256678c-8fe0-4f59-a7d7-a2c7c716bf83",
@@ -37,13 +39,13 @@ mut_combo <- list(dna.mut=paste(taiga_id[["dna.missense.inframe"]],taiga_id[["dn
 
 sample_info <- data.frame(ID=get_values(taiga_id[["in.sets"]],"CCLE_ID",hdf5_dir),lineage=get_values(taiga_id[["in.sets"]],"lineage",hdf5_dir))
 
-default_features <- list(demeter="BRAF",demeter.ranks="BRAF",crispr="BRAF_1_001111",crispr.ranks="BRAF_1_001111",gene.rpkm="BRAF",CN="BRAF",CTD2="nutlin-3")
+default_features <- list(demeter="BRAF",demeter.ranks="BRAF",gecko="BRAF_1_001111",gecko.ranks="BRAF_1_001111",avana="BRAF_1_1111",avana.ranks="BRAF_1_1111",gene.rpkm="BRAF",CN="BRAF",CTD2="nutlin-3")
 
 shinyServer(function(input, output, session) {
    
-  x_dataset <- reactive({
-    input$x_dataset
-  })
+  #x_dataset <- reactive({
+  #  input$x_dataset
+  #})
     
   observe({
     x_dataset <- input$x_dataset
@@ -57,27 +59,9 @@ shinyServer(function(input, output, session) {
     updateSelectizeInput(session, 'y_gene', choices = y_col, server = TRUE)
   })
   
-
-  
-  
-  
-  
-  #output$x_id <- renderUI({
-  #  x_cols <- get_colnames(taiga_id[[input$x_dataset]],hdf5_dir)
-  #  selectizeInput("x_gene", "Select feature", choices = x_cols, options = list(
-  #    placeholder = 'Search',
-  #    onInitialize = I('function() { this.setValue(""); }')))
-  #})
-  
-  #output$y_id <- renderUI({
-  #  y_cols <- get_colnames(taiga_id[[input$y_dataset]],hdf5_dir)
-  #  selectizeInput("y_gene", "Select feature", choices = y_cols, options = list(
-  #    placeholder = 'Search',
-  #    onInitialize = I('function() { this.setValue(""); }')))
-  #})
   
   # Function for generating tooltip text
-  x_dataset <- reactive({input$x_dataset})
+  #x_dataset <- reactive({input$x_dataset})
 
   # A reactive expression with the ggvis plot
   vis <- reactive({
@@ -142,10 +126,16 @@ shinyServer(function(input, output, session) {
       x<-x[! is.na(x)]
       y<-y[! is.na(y)]
       jsamples<-intersect(names(x), names(y))
-      xj<-x[jsamples]
-      yj<-y[jsamples]
-      
-      df <- data.frame(ID=jsamples,x_val=xj,y_val=yj,colors=rep("other",length(jsamples)),stringsAsFactors=F)
+      if (length(jsamples) > 0){
+        xj<-x[jsamples]
+        yj<-y[jsamples]
+      } else {
+        xj <- 0
+        yj <- 0
+        jsamples <- "no overlap"
+      }
+    
+    df <- data.frame(ID=jsamples,x_val=xj,y_val=yj,colors=rep("other",length(jsamples)),stringsAsFactors=F)
     
     colors_labs <- list()
     colors_labs[1] <- "other"
