@@ -19,8 +19,9 @@ taiga_id <- list(gene.rpkm="013458ff-bb36-4fd7-ac87-dcc04b15174e",
                  gecko="886897b5-48b1-47c5-98bb-3c40e2c5cdde",
                  gecko.ranks="e0136d0d-ad4b-40c3-ba9c-820d1a26797b",
                  gecko.segment="1cb9fe68-b625-4af5-8dbe-e19ff4223764",
-                 avana="fb187a9d-b37a-4c1b-8033-86229be86b48",
-                 avana.ranks="6dc81b16-2e03-444b-b69f-83fd548a2766",
+                 avana="2949fd33-f417-42ea-ba5b-3a100e2b39ec",
+                 avana.ranks="3587811b-8d6f-4481-b616-391c5bd3aa50",
+                 avana.segment="be462b17-aafa-476f-8cc8-5751b5eecc99",
                  CN="20f80986-b2a9-4ced-948b-3fe0bc0522d7",
                  CTD2="55098e9e-7807-4df6-9c14-bbced64c06bd",
                  in.sets="2256678c-8fe0-4f59-a7d7-a2c7c716bf83",
@@ -40,7 +41,7 @@ mut_combo <- list(dna.mut=paste(taiga_id[["dna.missense.inframe"]],taiga_id[["dn
 
 sample_info <- data.frame(ID=get_values(taiga_id[["in.sets"]],"CCLE_ID",hdf5_dir),lineage=get_values(taiga_id[["in.sets"]],"lineage",hdf5_dir))
 
-default_features <- list(demeter="BRAF",demeter.ranks="BRAF",gecko="BRAF_1_001111",gecko.ranks="BRAF_1_001111",gecko.segment="BRAF",avana="BRAF_1_1111",avana.ranks="BRAF_1_1111",gene.rpkm="BRAF",CN="BRAF",CTD2="nutlin-3")
+default_features <- list(demeter="BRAF",demeter.ranks="BRAF",gecko="BRAF_1_001111",gecko.ranks="BRAF_1_001111",gecko.segment="BRAF",avana="BRAF_1_1111",avana.ranks="BRAF_1_1111",avana.segment="BRAF",gene.rpkm="BRAF",CN="BRAF",CTD2="nutlin-3")
 
 shinyServer(function(input, output, session) {
    

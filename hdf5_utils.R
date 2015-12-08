@@ -32,27 +32,6 @@ load.from.file <- function(name){
   e$data
 }
 
-createDemeterDatasets <- function(taiga_id){
-  
-  result <- list()
-  
-  demeter <- load.from.taiga(dataset_id=taiga_id)
-  demeter <- t(demeter)
-  #remove rows of all NA
-  demeter <- demeter[,colSums(is.na(demeter)) != nrow(demeter)]
-  
-  
-  #Find HAEMATOPOIETIC_AND_LYMPHOID_TISSUE samples and separate 
-  #indexes <- grep(".+_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE$", rownames(demeter))
-  #liquid_names <- rownames(demeter[indexes,])
-  #liquid_samples <- rownames(demeter) %in% liquid_names
-  
-  #result$liquid <- demeter[liquid_samples,]
-  #result$solid <- demeter[!liquid_samples,]
-  
-  #result
-  
-}
 
 ##
 # Creates a group for dataset.vals where dataset is the dataset name. Each column of the matrix is stored as dataset.val/colname,
@@ -65,7 +44,7 @@ createDemeterDatasets <- function(taiga_id){
 convert_to_hdf5 <- function(name,label,data_matrix,version,out_dir){
   
   #Create emtpy hdf5 file
-  hdf5_file <- paste(out_dir,version,".h5",sep="")
+  hdf5_file <- file.path(out_dir,paste0(version,".h5"))
   h5createFile(hdf5_file)
   
   #Write each column to an index in the values group

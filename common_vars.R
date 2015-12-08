@@ -6,6 +6,7 @@ axis_vars <- c(
   "Achilles CRISPR gecko segment" = "gecko.segment",
   "Achilles CRISPR avana score" = "avana",
   "Achilles CRISPR avana rank" = "avana.ranks",
+  "Achilles CRISPR avana segment" = "avana.segment",
   "CCLE RNAseq expression" = "gene.rpkm",
   "CCLE CN" = "CN",
   "CTD2 AUC" = "CTD2"
