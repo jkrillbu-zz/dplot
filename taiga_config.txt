@@ -1,19 +1,22 @@
 taiga_id	name	label	transpose
 013458ff-bb36-4fd7-ac87-dcc04b15174e	gene.rpkm	RNAseq log2 RPKM	FALSE
+35e9f6dd-cb05-47cd-a95f-5e603a7985b7	gene.tpm	RNAseq log2 TPM	FALSE
+39a60b44-9627-438b-8609-96e8789b3e3c	ceres	log2 Fold-change	TRUE
 20f80986-b2a9-4ced-948b-3fe0bc0522d7	CN	CN (log2)	TRUE
-55098e9e-7807-4df6-9c14-bbced64c06bd	CTD2	CTD2 AUC	FALSE9930be98-7c89-4ff4-a853-4bd5624565e8	dna.missense	DNA missense	FALSE
-047c1688-1c61-405c-8990-b3bfb9e0e2a3	dna.missense.inframe	DNA missense	FALSEf9b17f28-0b4c-4e60-89a8-ff9501ab8b2d	dna.damage	DNA damaging	FALSE
-8a771b60-ef2d-40ff-ad2d-e2a17d42c4b4	dna.hotspot	DNA hotspot	FALSE7782c43d-4f5a-4f2d-bb97-22aea41835cc	rna.missense	RNA missense	FALSE
+55098e9e-7807-4df6-9c14-bbced64c06bd	CTD2	CTD2 AUC	FALSE
+9930be98-7c89-4ff4-a853-4bd5624565e8	dna.missense	DNA missense	FALSE
+047c1688-1c61-405c-8990-b3bfb9e0e2a3	dna.missense.inframe	DNA missense	FALSE
+f9b17f28-0b4c-4e60-89a8-ff9501ab8b2d	dna.damage	DNA damaging	FALSE
+8a771b60-ef2d-40ff-ad2d-e2a17d42c4b4	dna.hotspot	DNA hotspot	FALSE
+7782c43d-4f5a-4f2d-bb97-22aea41835cc	rna.missense	RNA missense	FALSE
 92c22ffa-6204-4808-a767-893011d54f13	rna.missense.inframe	RNA missense	FALSE
-1d762322-6abb-4cd0-ac23-03d8369492b6	rna.hotspot	RNA hotspot	FALSEf3fd436d-7642-4563-bc9e-28dc32457b7e	rna.damage	RNA damaging	FALSE3259377a-e057-44b4-9bae-09857c98b387	rna.indels.inframe	RNA INDELs (in frame)	FALSE
+1d762322-6abb-4cd0-ac23-03d8369492b6	rna.hotspot	RNA hotspot	FALSE
+f3fd436d-7642-4563-bc9e-28dc32457b7e	rna.damage	RNA damaging	FALSE
+3259377a-e057-44b4-9bae-09857c98b387	rna.indels.inframe	RNA INDELs (in frame)	FALSE
 ccd64089-ce1d-4fd4-a962-9bdea841d491	demeter	DEMETER 6k z-score	TRUE
 966b70bf-c414-43ad-97ec-1a8b50f91ed6	demeter	DEMETER z-score	TRUE
 bde3b2c9-a10a-40aa-ab9f-0907e85c20d2	demeter.ranks	DEMETER rank	FALSE
-6ce39e1f-b1e0-4085-b644-c8604f6e8fe9	demeter.scaled.ranks	DEMETER scaled rank	FALSE	cbd33823-2951-4070-adb8-b095dab9a628	in.sets.cols	CCLE lineage colors	FALSE2256678c-8fe0-4f59-a7d7-a2c7c716bf83	in.sets	CCLE lineages	FALSEddbb3f5a-62cd-4d0f-ad05-27185cc18772	lineage.matrix	lineage	FALSE
-886897b5-48b1-47c5-98bb-3c40e2c5cdde	gecko.global.zmad	ATARIS ZMAD	FALSE
-10bca438-8147-4824-9dd8-f83275868fbd	gecko.sample.zmad.ranks	ATARIS rank	FALSE
-e0136d0d-ad4b-40c3-ba9c-820d1a26797b	gecko.sample.zmad.scaled.ranks	ATARIS scaled rank	FALSE
-1cb9fe68-b625-4af5-8dbe-e19ff4223764	gecko.segmented.zmad	Segment mean ATARIS ZMAD	FALSE
-2949fd33-f417-42ea-ba5b-3a100e2b39ec	avana.global.zmad	ATARIS ZMAD	FALSE
-3587811b-8d6f-4481-b616-391c5bd3aa50	avana.sample.zmad.ranks	ATARIS scaled rank	FALSE		
-be462b17-aafa-476f-8cc8-5751b5eecc99	avana.segmented.zmad	Segment mean ATARIS ZMAD	FALSE
+6ce39e1f-b1e0-4085-b644-c8604f6e8fe9	demeter.scaled.ranks	DEMETER scaled rank	FALSE
+cbd33823-2951-4070-adb8-b095dab9a628	in.sets.cols	CCLE lineage colors	FALSE
+2256678c-8fe0-4f59-a7d7-a2c7c716bf83	in.sets	CCLE lineages	FALSE
+ddbb3f5a-62cd-4d0f-ad05-27185cc18772	lineage.matrix	lineage	FALSE
